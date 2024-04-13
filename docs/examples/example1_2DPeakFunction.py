@@ -64,6 +64,7 @@ use ``matplotlib`` to plot the function, and its approximation.
 
 """
 
+
 import gurobipy as gp
 import numpy as np
 from gurobipy import GRB

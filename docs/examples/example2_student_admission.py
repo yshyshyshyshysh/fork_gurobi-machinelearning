@@ -116,8 +116,9 @@ features = ["merit", "SAT", "GPA"]
 target = "enroll"
 
 print('=======================historical_data=======================')
-print(historical_data.shape)
-print(historical_data[:10])
+print(historical_data.shape) # (20000, 5)
+print(historical_data[:10]) # StudentID   SAT   GPA  merit  enroll
+
 
 ######################################################################
 # Fit the logistic regression
@@ -185,8 +186,8 @@ m.update()
 
 # Let's look at our features dataframe for the optimization
 print('=======================students_opt_data=======================')
-print(students_opt_data.shape)
-print(students_opt_data[:10])
+print(students_opt_data.shape) # (25, 3)
+print(students_opt_data[:10]) # StudentID   merit(gurobi.Var)   SAT   GPA
 
 
 ######################################################################
@@ -251,7 +252,13 @@ print(
 # regression in a solution as a pandas dataframe using input_values.
 #
 
-pred_constr.input_values
+print('============================================pred_constr.input_values')
+print(pred_constr.input_values)
+
+# 印出 y 變量的值
+for student_id, var in y.items():
+    print(f"Student ID: {student_id}, Enroll Probability: {var.X}")
+
 
 
 ######################################################################

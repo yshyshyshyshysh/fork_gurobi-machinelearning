@@ -123,6 +123,9 @@ sorted_labels = np.argsort(ex_prob)[0]
 right_label = sorted_labels[-1]
 wrong_label = sorted_labels[-2]
 
+print(f'=====================================right_label: {right_label}')
+print(f'=====================================wrong_label: {wrong_label}')
+
 
 ######################################################################
 # Building the optimization model
@@ -149,8 +152,8 @@ wrong_label = sorted_labels[-2]
 m = gp.Model()
 delta = 5
 
-x = m.addMVar(example.shape, lb=0.0, ub=1.0, name="x")
-y = m.addMVar(ex_prob.shape, lb=-gp.GRB.INFINITY, name="y")
+x = m.addMVar(example.shape, lb=0.0, ub=1.0, name="x") # x 是輸出的對抗圖片
+y = m.addMVar(ex_prob.shape, lb=-gp.GRB.INFINITY, name="y") # y 是 x 分類的概率
 
 abs_diff = m.addMVar(example.shape, lb=0, ub=1, name="abs_diff")
 

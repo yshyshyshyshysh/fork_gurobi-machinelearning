@@ -69,6 +69,7 @@ import gurobipy as gp
 import numpy as np
 from joblib import load
 from matplotlib import pyplot as plt
+import os
 
 from gurobi_ml.sklearn import add_mlp_regressor_constr
 
@@ -82,6 +83,8 @@ from gurobi_ml.sklearn import add_mlp_regressor_constr
 #
 
 # Load the trained network and the examples
+script_dir = os.path.dirname(os.path.realpath(__file__))
+os.chdir(script_dir)
 mnist_data = load("../../tests/predictors/mnist__mlpclassifier.joblib")
 nn = mnist_data["predictor"]
 X = mnist_data["data"]

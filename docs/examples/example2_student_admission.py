@@ -115,6 +115,9 @@ historical_data = pd.read_csv(
 features = ["merit", "SAT", "GPA"]
 target = "enroll"
 
+print('=======================historical_data=======================')
+print(historical_data.shape)
+print(historical_data[:10])
 
 ######################################################################
 # Fit the logistic regression
@@ -181,7 +184,9 @@ students_opt_data = students_opt_data.loc[:, features]
 m.update()
 
 # Let's look at our features dataframe for the optimization
-students_opt_data[:10]
+print('=======================students_opt_data=======================')
+print(students_opt_data.shape)
+print(students_opt_data[:10])
 
 
 ######################################################################
